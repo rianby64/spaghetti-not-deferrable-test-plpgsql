@@ -52,4 +52,5 @@ CREATE TRIGGER "Maestra_delete_after"
 INSERT INTO "Maestra" ("Aux0Id", "Aux1Id", msg) VALUES
   (1, 2, 'Maestra 1'),
   (2, 3, 'Maestra 2'),
-  (3, 4, 'Maestra 3');
+  (3, 4, 'Maestra 3'),
+  (4, 5, 'Maestra 3');
