@@ -1,6 +1,6 @@
 \set QUIET 1
 
-\ir ./aux.sql
+\ir ./aux0.sql
 \ir ./maestra.sql
 
-DELETE FROM "Aux" WHERE id=3;
+DELETE FROM "Aux0" WHERE id=3;

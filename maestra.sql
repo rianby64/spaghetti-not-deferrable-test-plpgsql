@@ -3,11 +3,11 @@ DROP TABLE IF EXISTS "Maestra" CASCADE;
 CREATE TABLE IF NOT EXISTS "Maestra"
 (
   id serial NOT NULL,
-  "AuxId" INTEGER NOT NULL,
+  "Aux0Id" INTEGER NOT NULL,
   msg TEXT,
   CONSTRAINT "Maestra_pkey" PRIMARY KEY (id),
-  CONSTRAINT "Maestra_AuxId_fkey" FOREIGN KEY ("AuxId")
-      REFERENCES "Aux" (id) MATCH SIMPLE
+  CONSTRAINT "Maestra_Aux0Id_fkey" FOREIGN KEY ("Aux0Id")
+      REFERENCES "Aux0" (id) MATCH SIMPLE
       ON UPDATE CASCADE ON DELETE CASCADE
 )
 WITH (
@@ -44,7 +44,7 @@ CREATE TRIGGER "Maestra_delete_after"
   FOR EACH ROW
   EXECUTE PROCEDURE maestra_delete_after();
 
-INSERT INTO "Maestra" ("AuxId", msg) VALUES
+INSERT INTO "Maestra" ("Aux0Id", msg) VALUES
   (1, 'Maestra 1'),
   (2, 'Maestra 2'),
   (3, 'Maestra 3');
