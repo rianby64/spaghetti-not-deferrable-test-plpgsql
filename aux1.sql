@@ -15,6 +15,8 @@ CREATE OR REPLACE FUNCTION aux1_delete_before()
 $$
 BEGIN
   RAISE NOTICE 'aux1_delete_before %', OLD;
+  RAISE NOTICE 'aux0_delete_before Aux1.len = %',
+    (SELECT COUNT(id) FROM "Aux1");
   RETURN OLD;
 END
 $$ LANGUAGE plpgsql;
@@ -30,6 +32,8 @@ CREATE OR REPLACE FUNCTION aux1_delete_after()
 $$
 BEGIN
   RAISE NOTICE 'aux1_delete_after %', OLD;
+  RAISE NOTICE 'aux0_delete_after Aux1.len = %',
+    (SELECT COUNT(id) FROM "Aux1");
   RETURN OLD;
 END
 $$ LANGUAGE plpgsql;

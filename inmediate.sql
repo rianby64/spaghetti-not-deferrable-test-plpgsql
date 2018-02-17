@@ -21,12 +21,20 @@ Version 10.2
 
 psql:inmediate.sql:10: NOTICE:  DELETE FROM "Aux0" WHERE id=3;
 psql:inmediate.sql:11: NOTICE:  aux0_delete_before (3,"Aux0 3")
+psql:inmediate.sql:11: NOTICE:  aux0_delete_before Aux0.len = 5
 psql:inmediate.sql:11: NOTICE:  aux0_delete_after (3,"Aux0 3")
+psql:inmediate.sql:11: NOTICE:  aux0_delete_after Aux0.len = 4
 psql:inmediate.sql:11: NOTICE:  maestra_delete_before (3,3,4,"Maestra 3")
+psql:inmediate.sql:11: NOTICE:  maestra_delete_before Aux0.len = 4 Aux1.len = 5
 psql:inmediate.sql:11: NOTICE:  maestra_delete_after (3,3,4,"Maestra 3")
+psql:inmediate.sql:11: NOTICE:  maestra_delete_after Aux0.len = 4 Aux1.len = 5
 psql:inmediate.sql:15: NOTICE:  DELETE FROM "Aux1" WHERE id=3;
 psql:inmediate.sql:16: NOTICE:  aux1_delete_before (3,"Aux1 3")
+psql:inmediate.sql:16: NOTICE:  aux0_delete_before Aux1.len = 5
 psql:inmediate.sql:16: NOTICE:  aux1_delete_after (3,"Aux1 3")
+psql:inmediate.sql:16: NOTICE:  aux0_delete_after Aux1.len = 4
 psql:inmediate.sql:16: NOTICE:  maestra_delete_before (2,2,3,"Maestra 2")
+psql:inmediate.sql:16: NOTICE:  maestra_delete_before Aux0.len = 4 Aux1.len = 4
 psql:inmediate.sql:16: NOTICE:  maestra_delete_after (2,2,3,"Maestra 2")
+psql:inmediate.sql:16: NOTICE:  maestra_delete_after Aux0.len = 4 Aux1.len = 4
 */

@@ -24,6 +24,9 @@ CREATE OR REPLACE FUNCTION maestra_delete_before()
 $$
 BEGIN
   RAISE NOTICE 'maestra_delete_before %', OLD;
+  RAISE NOTICE 'maestra_delete_before Aux0.len = % Aux1.len = %',
+    (SELECT COUNT(id) FROM "Aux0"),
+    (SELECT COUNT(id) FROM "Aux1");
   RETURN OLD;
 END
 $$ LANGUAGE plpgsql;
@@ -39,6 +42,9 @@ CREATE OR REPLACE FUNCTION maestra_delete_after()
 $$
 BEGIN
   RAISE NOTICE 'maestra_delete_after %', OLD;
+  RAISE NOTICE 'maestra_delete_after Aux0.len = % Aux1.len = %',
+    (SELECT COUNT(id) FROM "Aux0"),
+    (SELECT COUNT(id) FROM "Aux1");
   RETURN OLD;
 END
 $$ LANGUAGE plpgsql;
