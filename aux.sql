@@ -40,4 +40,9 @@ CREATE TRIGGER "Aux_delete_after"
   FOR EACH ROW
   EXECUTE PROCEDURE aux_delete_after();
 
-
+INSERT INTO "Aux" (msg) VALUES
+  ('Aux 1'),
+  ('Aux 2'),
+  ('Aux 3'),
+  ('Aux 4'),
+  ('Aux 5');

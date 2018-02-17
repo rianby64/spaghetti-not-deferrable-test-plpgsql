@@ -44,3 +44,7 @@ CREATE TRIGGER "Maestra_delete_after"
   FOR EACH ROW
   EXECUTE PROCEDURE maestra_delete_after();
 
+INSERT INTO "Maestra" ("AuxId", msg) VALUES
+  (1, 'Maestra 1'),
+  (2, 'Maestra 2'),
+  (3, 'Maestra 3');
