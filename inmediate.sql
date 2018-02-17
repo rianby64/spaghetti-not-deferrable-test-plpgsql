@@ -15,9 +15,11 @@ RAISE NOTICE 'DELETE FROM "Aux1" WHERE id=3;';
 END$$;
 DELETE FROM "Aux1" WHERE id=3;
 
+DO $$BEGIN
+RAISE NOTICE 'version = %', (SELECT version());
+END$$;
 /*
 Este es el resultado que veo en este commit
-Version 10.2
 
 psql:inmediate.sql:10: NOTICE:  DELETE FROM "Aux0" WHERE id=3;
 psql:inmediate.sql:11: NOTICE:  aux0_delete_before (3,"Aux0 3")
@@ -37,4 +39,5 @@ psql:inmediate.sql:16: NOTICE:  maestra_delete_before (2,2,3,"Maestra 2")
 psql:inmediate.sql:16: NOTICE:  maestra_delete_before Aux0.len = 4 Aux1.len = 4
 psql:inmediate.sql:16: NOTICE:  maestra_delete_after (2,2,3,"Maestra 2")
 psql:inmediate.sql:16: NOTICE:  maestra_delete_after Aux0.len = 4 Aux1.len = 4
+psql:inmediate.sql:20: NOTICE:  version = PostgreSQL 9.6.7 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-16), 64-bit
 */
