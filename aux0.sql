@@ -3,8 +3,12 @@ DROP TABLE IF EXISTS "Aux0" CASCADE;
 CREATE TABLE IF NOT EXISTS "Aux0"
 (
   id serial NOT NULL,
+  "Aux0Aux0Id" INTEGER NOT NULL,
   msg TEXT,
-  CONSTRAINT "Aux0_pkey" PRIMARY KEY (id)
+  CONSTRAINT "Aux0_pkey" PRIMARY KEY (id),
+  CONSTRAINT "Maestra_Aux0Aux0Id_fkey" FOREIGN KEY ("Aux0Aux0Id")
+      REFERENCES "Aux0Aux0" (id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE
 )
 WITH (
   OIDS=FALSE
@@ -44,9 +48,9 @@ CREATE TRIGGER "Aux0_delete_after"
   FOR EACH ROW
   EXECUTE PROCEDURE aux0_delete_after();
 
-INSERT INTO "Aux0" (msg) VALUES
-  ('Aux0 1'),
-  ('Aux0 2'),
-  ('Aux0 3'),
-  ('Aux0 4'),
-  ('Aux0 5');
+INSERT INTO "Aux0" (msg, "Aux0Aux0Id") VALUES
+  ('Aux0 1', 1),
+  ('Aux0 2', 2),
+  ('Aux0 3', 3),
+  ('Aux0 4', 4),
+  ('Aux0 5', 5);
