@@ -17,6 +17,7 @@ DELETE FROM "Aux1" WHERE id=3;
 
 /*
 Este es el resultado que veo en este commit
+Version 10.2
 
 psql:inmediate.sql:10: NOTICE:  DELETE FROM "Aux0" WHERE id=3;
 psql:inmediate.sql:11: NOTICE:  aux0_delete_before (3,"Aux0 3")
