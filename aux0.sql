@@ -14,6 +14,21 @@ WITH (
   OIDS=FALSE
 );
 
+CREATE OR REPLACE FUNCTION ante_aux0_delete_before()
+  RETURNS TRIGGER AS
+$$
+BEGIN
+  RAISE NOTICE 'ante_aux0_delete_before %', OLD;
+  RETURN OLD;
+END
+$$ LANGUAGE plpgsql STABLE;
+
+CREATE TRIGGER "ante_Aux0_delete_before"
+  BEFORE DELETE
+  ON "Aux0"
+  FOR EACH ROW
+  EXECUTE PROCEDURE ante_aux0_delete_before();
+
 CREATE OR REPLACE FUNCTION aux0_delete_before()
   RETURNS TRIGGER AS
 $$
