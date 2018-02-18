@@ -1,4 +1,9 @@
 
+LOAD 'auto_explain';
+set auto_explain.log_analyze = on;
+set auto_explain.log_min_duration = 0;
+set auto_explain.log_triggers = on;
+
 CREATE OR REPLACE FUNCTION showtables()
   RETURNS void AS
 $$
