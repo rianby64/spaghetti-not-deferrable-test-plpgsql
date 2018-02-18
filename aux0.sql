@@ -47,7 +47,7 @@ BEGIN
   RAISE NOTICE 'PERFORM showtables() >';
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql STABLE;
+$$ LANGUAGE plpgsql;
 
 CREATE TRIGGER "Aux0_delete_before"
   BEFORE DELETE
@@ -65,7 +65,7 @@ BEGIN
   RAISE NOTICE 'PERFORM showtables() >';
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql STABLE;
+$$ LANGUAGE plpgsql;
 
 CREATE TRIGGER "Aux0_delete_after"
   AFTER DELETE
