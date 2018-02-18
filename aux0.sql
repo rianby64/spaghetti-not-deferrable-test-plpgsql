@@ -19,11 +19,10 @@ CREATE OR REPLACE FUNCTION aux0_delete_before()
 $$
 BEGIN
   RAISE NOTICE 'aux0_delete_before %', OLD;
-  RAISE NOTICE 'aux0_delete_before Aux0.len = %',
-    (SELECT COUNT(id) FROM "Aux0");
+  PERFORM showtables();
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql IMMUTABLE;
 
 CREATE TRIGGER "Aux0_delete_before"
   BEFORE DELETE
@@ -36,11 +35,10 @@ CREATE OR REPLACE FUNCTION aux0_delete_after()
 $$
 BEGIN
   RAISE NOTICE 'aux0_delete_after %', OLD;
-  RAISE NOTICE 'aux0_delete_after Aux0.len = %',
-    (SELECT COUNT(id) FROM "Aux0");
+  PERFORM showtables();
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql IMMUTABLE;
 
 CREATE TRIGGER "Aux0_delete_after"
   AFTER DELETE

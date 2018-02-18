@@ -13,7 +13,6 @@ CREATE TABLE IF NOT EXISTS "Maestra"
   CONSTRAINT "Maestra_Aux1Id_fkey" FOREIGN KEY ("Aux1Id")
       REFERENCES "Aux1" (id) MATCH SIMPLE
       ON UPDATE CASCADE ON DELETE CASCADE
-
 )
 WITH (
   OIDS=FALSE
@@ -24,12 +23,10 @@ CREATE OR REPLACE FUNCTION maestra_delete_before()
 $$
 BEGIN
   RAISE NOTICE 'maestra_delete_before %', OLD;
-  RAISE NOTICE 'maestra_delete_before Aux0.len = % Aux1.len = %',
-    (SELECT COUNT(id) FROM "Aux0"),
-    (SELECT COUNT(id) FROM "Aux1");
+  PERFORM showtables();
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql IMMUTABLE;
 
 CREATE TRIGGER "Maestra_delete_before"
   BEFORE DELETE
@@ -42,12 +39,10 @@ CREATE OR REPLACE FUNCTION maestra_delete_after()
 $$
 BEGIN
   RAISE NOTICE 'maestra_delete_after %', OLD;
-  RAISE NOTICE 'maestra_delete_after Aux0.len = % Aux1.len = %',
-    (SELECT COUNT(id) FROM "Aux0"),
-    (SELECT COUNT(id) FROM "Aux1");
+  PERFORM showtables();
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql IMMUTABLE;
 
 CREATE TRIGGER "Maestra_delete_after"
   AFTER DELETE

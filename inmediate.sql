@@ -1,5 +1,5 @@
 \set QUIET 1
-
+\ir ./fns.sql
 \ir ./aux0aux0.sql
 \ir ./aux0.sql
 \ir ./aux1.sql
