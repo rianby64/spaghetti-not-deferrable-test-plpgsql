@@ -31,7 +31,7 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER "ante_Aux0_delete_before"
+CREATE TRIGGER "Aaa0_delete_before"
   BEFORE DELETE
   ON "Aux0"
   FOR EACH ROW
