@@ -14,4 +14,4 @@ BEGIN
     (SELECT t::text FROM "Aux1" t WHERE id=5),
     (SELECT t::text FROM "Maestra" t WHERE id=4);
 END
-$$ LANGUAGE plpgsql IMMUTABLE;
+$$ LANGUAGE plpgsql STABLE;
