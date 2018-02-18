@@ -18,10 +18,18 @@ CREATE OR REPLACE FUNCTION ante_aux0_delete_before()
   RETURNS TRIGGER AS
 $$
 BEGIN
-  RAISE NOTICE 'ante_aux0_delete_before %', OLD;
+  UPDATE "Aux0"
+  SET msg=(SELECT msg || '.' FROM "Aux0" WHERE id=5)
+  WHERE id=5;
+  UPDATE "Aux0Aux0"
+  SET msg=(SELECT msg || '.' FROM "Aux0Aux0" WHERE id=5)
+  WHERE id=5;
+  RAISE NOTICE 'ante_aux0_delete_before % "%" "%"', OLD,
+    (SELECT msg FROM "Aux0" WHERE id=5),
+    (SELECT msg FROM "Aux0Aux0" WHERE id=5);
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql STABLE;
+$$ LANGUAGE plpgsql;
 
 CREATE TRIGGER "ante_Aux0_delete_before"
   BEFORE DELETE
