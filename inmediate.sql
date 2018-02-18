@@ -101,5 +101,5 @@ psql:inmediate.sql:21: NOTICE:  PERFORM showtables() <
 psql:inmediate.sql:21: NOTICE:  Aux0Aux0 = 4 Aux0 = 3 Aux1 = 4 Maestra = 1
 psql:inmediate.sql:21: NOTICE:  (5,"Aux0Aux0 5..") (5,5,"Aux0 5..") (5,"Aux1 5") (4,4,5,"Maestra 3")
 psql:inmediate.sql:21: NOTICE:  PERFORM showtables() >
-psql:inmediate.sql:25: NOTICE:  version = PostgreSQL 9.6.7 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-16), 64-bit
+psql:inmediate.sql:25: NOTICE:  version = PostgreSQL 10.2 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-16), 64-bit
 */
