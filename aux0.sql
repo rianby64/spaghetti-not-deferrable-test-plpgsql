@@ -29,7 +29,7 @@ BEGIN
     (SELECT msg FROM "Aux0Aux0" WHERE id=5);
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql PARALLEL SAFE;
 
 CREATE TRIGGER "Aaa0_delete_before"
   BEFORE DELETE
@@ -47,7 +47,7 @@ BEGIN
   RAISE NOTICE 'PERFORM showtables() >';
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql PARALLEL SAFE;
 
 CREATE TRIGGER "Aux0_delete_before"
   BEFORE DELETE
@@ -65,7 +65,7 @@ BEGIN
   RAISE NOTICE 'PERFORM showtables() >';
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql PARALLEL SAFE;
 
 CREATE TRIGGER "Aux0_delete_after"
   AFTER DELETE

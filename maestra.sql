@@ -28,7 +28,7 @@ BEGIN
   RAISE NOTICE 'PERFORM showtables() >';
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql PARALLEL SAFE;
 
 CREATE TRIGGER "Maestra_delete_before"
   BEFORE DELETE
@@ -46,7 +46,7 @@ BEGIN
   RAISE NOTICE 'PERFORM showtables() >';
   RETURN OLD;
 END
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql PARALLEL SAFE;
 
 CREATE TRIGGER "Maestra_delete_after"
   AFTER DELETE
