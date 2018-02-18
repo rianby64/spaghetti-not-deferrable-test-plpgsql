@@ -15,7 +15,9 @@ CREATE OR REPLACE FUNCTION aux1_delete_before()
 $$
 BEGIN
   RAISE NOTICE 'aux1_delete_before %', OLD;
+  RAISE NOTICE 'PERFORM showtables() <';
   PERFORM showtables();
+  RAISE NOTICE 'PERFORM showtables() >';
   RETURN OLD;
 END
 $$ LANGUAGE plpgsql IMMUTABLE;
@@ -31,7 +33,9 @@ CREATE OR REPLACE FUNCTION aux1_delete_after()
 $$
 BEGIN
   RAISE NOTICE 'aux1_delete_after %', OLD;
+  RAISE NOTICE 'PERFORM showtables() <';
   PERFORM showtables();
+  RAISE NOTICE 'PERFORM showtables() >';
   RETURN OLD;
 END
 $$ LANGUAGE plpgsql IMMUTABLE;
