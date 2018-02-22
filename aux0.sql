@@ -14,6 +14,21 @@ WITH (
   OIDS=FALSE
 );
 
+CREATE OR REPLACE FUNCTION ante_aux0_delete_after()
+  RETURNS TRIGGER AS
+$$
+BEGIN
+  RAISE NOTICE 'ante_aux0_delete_after %', OLD;
+  RETURN OLD;
+END
+$$ LANGUAGE plpgsql PARALLEL RESTRICTED;
+
+CREATE TRIGGER "Ante_Aux0_delete_after"
+  AFTER DELETE
+  ON "Aux0"
+  FOR EACH ROW
+  EXECUTE PROCEDURE ante_aux0_delete_after();
+
 CREATE OR REPLACE FUNCTION ante_aux0_delete_before()
   RETURNS TRIGGER AS
 $$
@@ -31,7 +46,7 @@ BEGIN
 END
 $$ LANGUAGE plpgsql PARALLEL RESTRICTED;
 
-CREATE TRIGGER "Aaa0_delete_before"
+CREATE TRIGGER "Ante_Aux0_delete_before"
   BEFORE DELETE
   ON "Aux0"
   FOR EACH ROW
